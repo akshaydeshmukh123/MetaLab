@@ -26,7 +26,7 @@ const Home = () => {
       formData.append("file", selectedFile);
 
       const response = await axios.post(
-        "http://localhost:8000/upload",
+        "https://dull-red-rooster-tie.cyclic.app/upload",
         formData,
         {
           headers: {

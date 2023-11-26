@@ -14,7 +14,7 @@ const Signup = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
-      let data = await fetch("api-link", {
+      let data = await fetch("https://dull-red-rooster-tie.cyclic.app/register", {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: user,
@@ -22,7 +22,7 @@ const Signup = () => {
 
       if (data.auth === 1) {
         nav("/"); //navigate to home page
-      } else if (data.auth == -1) {
+      } else if (data.auth === -1) {
         //navigate to signup if user not exists
         nav("/signup");
       } else {

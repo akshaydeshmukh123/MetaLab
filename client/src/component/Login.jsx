@@ -13,7 +13,7 @@ const Login = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
-      let data = await fetch("api-link", {
+      let data = await fetch("https://dull-red-rooster-tie.cyclic.app/login", {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: user,
