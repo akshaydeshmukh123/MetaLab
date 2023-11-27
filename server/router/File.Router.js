@@ -92,7 +92,7 @@ FileRouter.get("/deletes/:id", async  (req, res) =>{
     let isFile = await files.findOne({ file: req.params.id });
 
     if (isFile) {
-      await CSV.deleteOne({ file: req.params.id });
+      await files.deleteOne({ file: req.params.id });
       return res.redirect("/");
     } else {
       console.log("File not found");

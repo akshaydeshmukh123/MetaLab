@@ -2,18 +2,14 @@ const express = require("express");
 const { connection } = require("./config/db");
 const UserRouter = require("./router/User.Router");
 
+const cors = require("cors");
 
-const cors=require("cors")
+const FileRouter = require("./router/File.Router");
 
-const FileRouter=require("./router/File.Router")
-
-const  auth = require("./middleware/auth");
+const auth = require("./middleware/auth");
 const app = express();
 
-app.use(cors())
-
-app.use("/", UserRouter);
-
+app.use(cors());
 
 app.get("/", async (req, res) => {
   try {
@@ -23,17 +19,14 @@ app.get("/", async (req, res) => {
   }
 });
 
-app.use(express.urlencoded({ extended: false }));
+app.use("/", UserRouter);
 
-app.use("/", FileRouter);
 app.use("/", auth);
-
+app.use("/", FileRouter);
 
 app.use(express.json());
 
-
 //connection to the server
-
 
 app.listen(process.env.port, async () => {
   try {
