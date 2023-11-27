@@ -1,4 +1,3 @@
-// ! user Router for air Ticket Booking
 
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
